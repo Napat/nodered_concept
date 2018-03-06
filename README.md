@@ -31,7 +31,11 @@ RPI: Rasbian
 -----
 Rasbian OS จะติดตั้ง nodered และ lib สำหรับควบคุมฟังก์ชันพื้นฐานของ rPi เช่น gpio มาให้อยู่แล้ว 
   
-  
+Nodered node pkg
+-----
+- Dashboard https://flows.nodered.org/node/node-red-dashboard
+- MQTT broker https://flows.nodered.org/node/node-red-contrib-mqtt-broker
+
 Ref
 -----
 - https://flows.nodered.org/
