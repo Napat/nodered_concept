@@ -1,3 +1,33 @@
+
+การรัน nodered
+------
+หลังจากติดตั้ง nodered เสร็จเรียบร้อย เราสามารถสั่งรันได้ด้วยคำสั่ง 
+`node-red` และเปิดเข้าไปใช้งานที่ `http://127.0.0.1:1880` ได้เลยทันที   
+
+แต่มีทริกนิดนึงคือ ในตอนที่ใช้งานจริงเราจะได้ต้องออกแบบ flow แยกสำหรับ project ต่างๆกันอยู่แล้ว เช่น
+project01, project02, project03 
+หากเรารันด้วย `node-red` ปกติจะทำให้หน้าจอการออกแบบปนกันไปหมด  
+เราสามารถแก้ปัญหาได้ด้วยการเพิ่ม argument ตามหลังเข้าไปตอนสั่ง nodered ทำงานเช่น  
+`node-red project01`, `node-red project02`, `node-red project03`   ก็จะสามารถแยกหน้าสำหรับออกแบบออกจากกันได้เรียบร้อย  
+จากตัวอย่างจะเกิดไฟล์ขึ้นมาใหม่ 3 ไฟล์ที่ home directory ของ nodered ดังนี้
+```
+C:\Users\Napat\.node-red\project01
+C:\Users\Napat\.node-red\project02
+C:\Users\Napat\.node-red\project03
+```
+
+nodered with docker
+-----
+มี doc เขียนไว้ดีมากอยู่แล้วสามามารถไปอ่านได้ที่ [link](https://hub.docker.com/r/nodered/node-red-docker/)
+สรุปเป็นคำสั่งสั้นๆสำหรับการทำโปรเจคในโปรเจคใดๆได้ง่ายๆดังนี้
+```
+cd <your project>
+mkdir -p node_red_user_data
+docker run --rm -it -p 1880:1880 -v node_red_user_data:/data --name mynodered nodered/node-red-docker
+```
+Note: ไม่แนะนำให้ใช้ nodered+docker สำหรับมือใหม่หัดใช้เนื่องจากอาจจะต้อง customize env เช่น port ต่างๆเพิ่มเติมตามความต้องการของแต่ละโปรเจค และอาจจะงงเรื่อง path หรือตำแหน่งไฟล์ต่างๆ
+ 
+
 การ Import and Export flow 
 ------
 Flow จะถูก save อยู่ในรูปของไฟล์ json ในเวอร์ชันปัจจุบันสามารถ import/export ได้สองวิธีคือ 
